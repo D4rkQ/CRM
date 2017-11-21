@@ -1,0 +1,382 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY var "urn:swrl#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY swrl "http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY swrlb "http://www.w3.org/2003/11/swrlb#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY var2 "urn:http://www.w3.org/2003/11/swrl#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY personen "http://www.reutlingen-university.de/ontologies/personen.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.reutlingen-university.de/ontologies/personen.owl#"
+     xml:base="http://www.reutlingen-university.de/ontologies/personen.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:var="urn:swrl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:personen="http://www.reutlingen-university.de/ontologies/personen.owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:var2="urn:&swrl;">
+    <owl:Ontology rdf:about="http://www.reutlingen-university.de/ontologies/personen.owl"/>
+    
+    <!-- 
+    // Object Properties
+     -->
+
+    <owl:ObjectProperty rdf:about="&personen;hasEmployedParent">
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&personen;hasParent"/>
+            <rdf:Description rdf:about="&personen;isEmployedAt"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="&personen;hasParent"/>
+
+    <owl:ObjectProperty rdf:about="&personen;hasPart"/>
+
+    <owl:ObjectProperty rdf:about="&personen;hasSpouse">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
+        <rdf:type rdf:resource="&owl;SymmetricProperty"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="&personen;isEmployedAt">
+        <owl:propertyChainAxiom rdf:parseType="Collection">
+            <rdf:Description rdf:about="&personen;isEmployedAt"/>
+            <rdf:Description rdf:about="&personen;isPartOf"/>
+        </owl:propertyChainAxiom>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="&personen;isPartOf">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <owl:inverseOf rdf:resource="&personen;hasPart"/>
+    </owl:ObjectProperty>
+
+    <!-- 
+    // Data properties
+     -->
+
+    <owl:DatatypeProperty rdf:about="&personen;hasEmail"/>
+    
+    <!-- 
+    // Classes
+     -->
+
+    <owl:Class rdf:about="&personen;Boy">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&personen;BigBoy"/>
+                    <rdf:Description rdf:about="&personen;SmallBoy"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&personen;Child"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="&personen;Boy_or_Small">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&personen;Boy"/>
+                    <rdf:Description rdf:about="&personen;Small"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&personen;Child"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="&personen;Child">
+        <rdfs:subClassOf rdf:resource="&personen;Person"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="&personen;ChildOfICSEmployee">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&personen;hasEmployedParent"/>
+                <owl:hasValue rdf:resource="&personen;ICS"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&personen;Person"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="&personen;ChildOfMarriedParents">
+        <rdfs:subClassOf rdf:resource="&personen;Person"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="&personen;Czech">
+        <rdfs:subClassOf rdf:resource="&personen;Person"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="&personen;Employee">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&personen;isEmployedAt"/>
+                <owl:someValuesFrom rdf:resource="&personen;OrgUnit"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&personen;Person"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="&personen;EmployeesOfMU">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&personen;isEmployedAt"/>
+                <owl:hasValue rdf:resource="&personen;MU"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&personen;Person"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="&personen;Girl">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&personen;Child"/>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="&personen;Boy"/>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&personen;Child"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="&personen;OrgUnit"/>
+
+    <owl:Class rdf:about="&personen;Person">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&personen;hasParent"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+
+    <owl:Class rdf:about="&personen;Small">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&personen;SmallGirl"/>
+                    <rdf:Description rdf:about="&personen;SmallBoy"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&personen;Child"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="&personen;Small_and_Boy">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&personen;Boy"/>
+                    <rdf:Description rdf:about="&personen;Small"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&personen;Child"/>
+    </owl:Class>
+
+    <owl:Class rdf:about="&personen;Student">
+        <rdfs:subClassOf rdf:resource="&personen;Person"/>
+    </owl:Class>
+ 
+    <!-- 
+    // Individuals
+     -->
+
+    <owl:NamedIndividual rdf:about="&personen;BigBoy">
+        <rdf:type rdf:resource="&personen;Child"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="&personen;BigGirl">
+        <rdf:type rdf:resource="&personen;Child"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="&personen;ICS">
+        <rdf:type rdf:resource="&personen;OrgUnit"/>
+        <rdfs:label xml:lang="cs">Ustav vypocetni techniky</rdfs:label>
+        <rdfs:label xml:lang="en">Institute of Computer Science</rdfs:label>
+        <isPartOf rdf:resource="&personen;MU"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="&personen;Ivan">
+        <rdf:type rdf:resource="&personen;Person"/>
+        <hasParent rdf:resource="&personen;Lenka"/>
+        <hasParent rdf:resource="&personen;Martin"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="&personen;Lenka">
+        <rdf:type rdf:resource="&personen;Czech"/>
+        <rdf:type rdf:resource="&personen;Person"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="&personen;MU">
+        <rdf:type rdf:resource="&personen;OrgUnit"/>
+        <rdfs:label xml:lang="cs">Masarykova univerzita</rdfs:label>
+        <rdfs:label xml:lang="en">Masaryk University</rdfs:label>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="&personen;Martin">
+        <rdf:type rdf:resource="&personen;Czech"/>
+        <rdf:type rdf:resource="&personen;Student"/>
+        <hasEmail rdf:datatype="&xsd;string">makub@ics.muni.cz</hasEmail>
+        <hasSpouse rdf:resource="&personen;Lenka"/>
+        <isEmployedAt rdf:resource="&personen;SC"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="&personen;SC">
+        <rdf:type rdf:resource="&personen;OrgUnit"/>
+        <rdfs:label xml:lang="cs">Superpocitacove centrum</rdfs:label>
+        <rdfs:label xml:lang="en">Supercomputing Center</rdfs:label>
+        <isPartOf rdf:resource="&personen;ICS"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="&personen;SmallBoy">
+        <rdf:type rdf:resource="&personen;Child"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="&personen;SmallGirl">
+        <rdf:type rdf:resource="&personen;Child"/>
+    </owl:NamedIndividual>
+
+    <!-- 
+    // General axioms
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="&personen;BigBoy"/>
+            <rdf:Description rdf:about="&personen;BigGirl"/>
+            <rdf:Description rdf:about="&personen;ICS"/>
+            <rdf:Description rdf:about="&personen;Ivan"/>
+            <rdf:Description rdf:about="&personen;Lenka"/>
+            <rdf:Description rdf:about="&personen;MU"/>
+            <rdf:Description rdf:about="&personen;Martin"/>
+            <rdf:Description rdf:about="&personen;SC"/>
+            <rdf:Description rdf:about="&personen;SmallBoy"/>
+            <rdf:Description rdf:about="&personen;SmallGirl"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    
+    <owl:Axiom>
+        <rdfs:label>cechove rodem</rdfs:label>
+        <rdfs:comment>dedicni cechove</rdfs:comment>
+        <owl:annotatedTarget rdf:resource="&personen;Czech"/>
+        <owl:annotatedProperty rdf:resource="&rdfs;subClassOf"/>
+        <owl:annotatedSource>
+            <owl:Restriction>
+                <rdfs:subClassOf rdf:resource="&personen;Czech"/>
+                <owl:onProperty rdf:resource="&personen;hasParent"/>
+                <owl:allValuesFrom rdf:resource="&personen;Czech"/>
+            </owl:Restriction>
+        </owl:annotatedSource>
+    </owl:Axiom>
+    
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="&personen;BigBoy"/>
+            <rdf:Description rdf:about="&personen;BigGirl"/>
+            <rdf:Description rdf:about="&personen;SmallBoy"/>
+            <rdf:Description rdf:about="&personen;SmallGirl"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    
+    <!-- 
+    // Rules
+     -->
+
+    <rdf:Description rdf:about="&var;x">
+        <rdf:type rdf:resource="&swrl;Variable"/>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="&var;y">
+        <rdf:type rdf:resource="&swrl;Variable"/>
+    </rdf:Description>
+    
+    <rdf:Description rdf:about="&var;z">
+        <rdf:type rdf:resource="&swrl;Variable"/>
+    </rdf:Description>
+    
+    <rdf:Description>
+        <rdf:type rdf:resource="&swrl;Imp"/>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:rest rdf:resource="&rdf;nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="&personen;ChildOfMarriedParents"/>
+                        <swrl:argument1 rdf:resource="&var;x"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="&swrl;AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="&personen;Person"/>
+                        <swrl:argument1 rdf:resource="&var;x"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&swrl;AtomList"/>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&swrl;AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="&personen;hasParent"/>
+                                        <swrl:argument1 rdf:resource="&var;x"/>
+                                        <swrl:argument2 rdf:resource="&var;z"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="&swrl;AtomList"/>
+                                        <rdf:rest rdf:resource="&rdf;nil"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="&personen;hasSpouse"/>
+                                                <swrl:argument1 rdf:resource="&var;y"/>
+                                                <swrl:argument2 rdf:resource="&var;z"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="&swrl;IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="&personen;hasParent"/>
+                                <swrl:argument1 rdf:resource="&var;x"/>
+                                <swrl:argument2 rdf:resource="&var;y"/>
+                            </rdf:Description>
+                        </rdf:first>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+    </rdf:Description>
+</rdf:RDF>
+

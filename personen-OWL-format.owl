@@ -1,0 +1,444 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.reutlingen-university.de/ontologies/personen.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     ontologyIRI="http://www.reutlingen-university.de/ontologies/personen.owl">
+    <Prefix name="" IRI="http://www.reutlingen-university.de/ontologies/personen.owl#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="var" IRI="urn:swrl#"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="swrl" IRI="http://www.w3.org/2003/11/swrl#"/>
+    <Prefix name="var2" IRI="urn:http://www.w3.org/2003/11/swrl#"/>
+    <Prefix name="swrlb" IRI="http://www.w3.org/2003/11/swrlb#"/>
+    <Prefix name="personen" IRI="http://www.reutlingen-university.de/ontologies/personen.owl#"/>
+    <Declaration>
+        <Class IRI="#Boy"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Boy_or_Small"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Child"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ChildOfICSEmployee"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ChildOfMarriedParents"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Czech"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Employee"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EmployeesOfMU"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Girl"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#OrgUnit"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Person"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Small"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Small_and_Boy"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Student"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasEmployedParent"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasParent"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasPart"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasSpouse"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isEmployedAt"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#isPartOf"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasEmail"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#BigBoy"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#BigGirl"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#ICS"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Ivan"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Lenka"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#MU"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Martin"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#SC"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#SmallBoy"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#SmallGirl"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class IRI="#Boy"/>
+        <ObjectOneOf>
+            <NamedIndividual IRI="#BigBoy"/>
+            <NamedIndividual IRI="#SmallBoy"/>
+        </ObjectOneOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Boy_or_Small"/>
+        <ObjectUnionOf>
+            <Class IRI="#Boy"/>
+            <Class IRI="#Small"/>
+        </ObjectUnionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#ChildOfICSEmployee"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#hasEmployedParent"/>
+            <NamedIndividual IRI="#ICS"/>
+        </ObjectHasValue>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Employee"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#isEmployedAt"/>
+            <Class IRI="#OrgUnit"/>
+        </ObjectSomeValuesFrom>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#EmployeesOfMU"/>
+        <ObjectHasValue>
+            <ObjectProperty IRI="#isEmployedAt"/>
+            <NamedIndividual IRI="#MU"/>
+        </ObjectHasValue>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Girl"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Child"/>
+            <ObjectComplementOf>
+                <Class IRI="#Boy"/>
+            </ObjectComplementOf>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Small"/>
+        <ObjectOneOf>
+            <NamedIndividual IRI="#SmallGirl"/>
+            <NamedIndividual IRI="#SmallBoy"/>
+        </ObjectOneOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class IRI="#Small_and_Boy"/>
+        <ObjectIntersectionOf>
+            <Class IRI="#Boy"/>
+            <Class IRI="#Small"/>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class IRI="#Boy"/>
+        <Class IRI="#Child"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Boy_or_Small"/>
+        <Class IRI="#Child"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Child"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ChildOfICSEmployee"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ChildOfMarriedParents"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Czech"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Employee"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EmployeesOfMU"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Girl"/>
+        <Class IRI="#Child"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Person"/>
+        <ObjectMaxCardinality cardinality="2">
+            <ObjectProperty IRI="#hasParent"/>
+        </ObjectMaxCardinality>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Small"/>
+        <Class IRI="#Child"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Small_and_Boy"/>
+        <Class IRI="#Child"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Student"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+            <Literal datatypeIRI="&rdf;PlainLiteral">dedicni cechove</Literal>
+        </Annotation>
+        <Annotation>
+            <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+            <Literal datatypeIRI="&rdf;PlainLiteral">cechove rodem</Literal>
+        </Annotation>
+        <ObjectAllValuesFrom>
+            <ObjectProperty IRI="#hasParent"/>
+            <Class IRI="#Czech"/>
+        </ObjectAllValuesFrom>
+        <Class IRI="#Czech"/>
+    </SubClassOf>
+    <ClassAssertion>
+        <Class IRI="#Child"/>
+        <NamedIndividual IRI="#BigBoy"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Child"/>
+        <NamedIndividual IRI="#BigGirl"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#OrgUnit"/>
+        <NamedIndividual IRI="#ICS"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Person"/>
+        <NamedIndividual IRI="#Ivan"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Czech"/>
+        <NamedIndividual IRI="#Lenka"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Person"/>
+        <NamedIndividual IRI="#Lenka"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#OrgUnit"/>
+        <NamedIndividual IRI="#MU"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Czech"/>
+        <NamedIndividual IRI="#Martin"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Student"/>
+        <NamedIndividual IRI="#Martin"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#OrgUnit"/>
+        <NamedIndividual IRI="#SC"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Child"/>
+        <NamedIndividual IRI="#SmallBoy"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Child"/>
+        <NamedIndividual IRI="#SmallGirl"/>
+    </ClassAssertion>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="#BigBoy"/>
+        <NamedIndividual IRI="#BigGirl"/>
+        <NamedIndividual IRI="#ICS"/>
+        <NamedIndividual IRI="#Ivan"/>
+        <NamedIndividual IRI="#Lenka"/>
+        <NamedIndividual IRI="#MU"/>
+        <NamedIndividual IRI="#Martin"/>
+        <NamedIndividual IRI="#SC"/>
+        <NamedIndividual IRI="#SmallBoy"/>
+        <NamedIndividual IRI="#SmallGirl"/>
+    </DifferentIndividuals>
+    <DifferentIndividuals>
+        <NamedIndividual IRI="#BigBoy"/>
+        <NamedIndividual IRI="#BigGirl"/>
+        <NamedIndividual IRI="#SmallBoy"/>
+        <NamedIndividual IRI="#SmallGirl"/>
+    </DifferentIndividuals>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPartOf"/>
+        <NamedIndividual IRI="#ICS"/>
+        <NamedIndividual IRI="#MU"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasParent"/>
+        <NamedIndividual IRI="#Ivan"/>
+        <NamedIndividual IRI="#Lenka"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasParent"/>
+        <NamedIndividual IRI="#Ivan"/>
+        <NamedIndividual IRI="#Martin"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasSpouse"/>
+        <NamedIndividual IRI="#Martin"/>
+        <NamedIndividual IRI="#Lenka"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isEmployedAt"/>
+        <NamedIndividual IRI="#Martin"/>
+        <NamedIndividual IRI="#SC"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPartOf"/>
+        <NamedIndividual IRI="#SC"/>
+        <NamedIndividual IRI="#ICS"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasEmail"/>
+        <NamedIndividual IRI="#Martin"/>
+        <Literal datatypeIRI="&xsd;string">makub@ics.muni.cz</Literal>
+    </DataPropertyAssertion>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#isPartOf"/>
+        <ObjectProperty IRI="#hasPart"/>
+    </InverseObjectProperties>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#hasSpouse"/>
+    </FunctionalObjectProperty>
+    <SymmetricObjectProperty>
+        <ObjectProperty IRI="#hasSpouse"/>
+    </SymmetricObjectProperty>
+    <TransitiveObjectProperty>
+        <ObjectProperty IRI="#isPartOf"/>
+    </TransitiveObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty IRI="#hasSpouse"/>
+    </IrreflexiveObjectProperty>
+    <SubObjectPropertyOf>
+        <ObjectPropertyChain>
+            <ObjectProperty IRI="#hasParent"/>
+            <ObjectProperty IRI="#isEmployedAt"/>
+        </ObjectPropertyChain>
+        <ObjectProperty IRI="#hasEmployedParent"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectPropertyChain>
+            <ObjectProperty IRI="#isEmployedAt"/>
+            <ObjectProperty IRI="#isPartOf"/>
+        </ObjectPropertyChain>
+        <ObjectProperty IRI="#isEmployedAt"/>
+    </SubObjectPropertyOf>
+    <DLSafeRule>
+        <Body>
+            <ClassAtom>
+                <Class IRI="#Person"/>
+                <Variable abbreviatedIRI="var:x"/>
+            </ClassAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#hasParent"/>
+                <Variable abbreviatedIRI="var:x"/>
+                <Variable abbreviatedIRI="var:y"/>
+            </ObjectPropertyAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#hasParent"/>
+                <Variable abbreviatedIRI="var:x"/>
+                <Variable abbreviatedIRI="var:z"/>
+            </ObjectPropertyAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty IRI="#hasSpouse"/>
+                <Variable abbreviatedIRI="var:y"/>
+                <Variable abbreviatedIRI="var:z"/>
+            </ObjectPropertyAtom>
+        </Body>
+        <Head>
+            <ClassAtom>
+                <Class IRI="#ChildOfMarriedParents"/>
+                <Variable abbreviatedIRI="var:x"/>
+            </ClassAtom>
+        </Head>
+    </DLSafeRule>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ICS</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Institute of Computer Science</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#ICS</IRI>
+        <Literal xml:lang="cs" datatypeIRI="&rdf;PlainLiteral">Ustav vypocetni techniky</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#MU</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Masaryk University</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#MU</IRI>
+        <Literal xml:lang="cs" datatypeIRI="&rdf;PlainLiteral">Masarykova univerzita</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SC</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Supercomputing Center</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#SC</IRI>
+        <Literal xml:lang="cs" datatypeIRI="&rdf;PlainLiteral">Superpocitacove centrum</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
