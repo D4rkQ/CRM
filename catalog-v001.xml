@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1511246274797" name="duplicate:http://www.reutlingen-university.de/ontologies/family2.owl" uri="family2.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1511246274797" name="duplicate:http://www.reutlingen-university.de/ontologies/family2.owl" uri="family2_new.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1511358481818" name="duplicate:http://www.reutlingen-university.de/ontologies/family2.owl" uri="family2.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1511358481818" name="duplicate:http://www.reutlingen-university.de/ontologies/family2.owl" uri="family2_new.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1511358481818" name="duplicate:http://www.reutlingen-university.de/ontologies/personen.owl" uri="personen-OWL-format.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1511358481818" name="duplicate:http://www.reutlingen-university.de/ontologies/personen.owl" uri="personen.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1511358481818" name="duplicate:http://www.semanticweb.org/max/ontologies/CRM_Ontology" uri="CRM_Ontology.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1511358481818" name="duplicate:http://www.semanticweb.org/max/ontologies/CRM_Ontology" uri="CRM_Ontology_new.owl"/>
     </group>
 </catalog>
