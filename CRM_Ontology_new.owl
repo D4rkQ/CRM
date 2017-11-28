@@ -25,16 +25,18 @@
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#betreut">
         <rdfs:range rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Kunde"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Mitarbeiter"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Verkaeufer"/>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#erreichbarDurch -->
+    <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#enthaelt -->
 
-    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#erreichbarDurch">
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#OnlineLaden"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Webseite"/>
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#enthaelt">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Laden"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Produkt"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Warenkorb"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
     </owl:ObjectProperty>
     
 
@@ -42,8 +44,16 @@
     <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#gekauft -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#gekauft">
-        <rdfs:range rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Einkauf"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Kunde"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#historieEnthaelt -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#historieEnthaelt">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Einkaufshistorie"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Warenkorb"/>
     </owl:ObjectProperty>
     
 
@@ -51,9 +61,7 @@
     <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#istBekannt -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#istBekannt">
-        <rdfs:range rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#CRM"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Kunde"/>
-        <rdfs:range rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Webseite"/>
     </owl:ObjectProperty>
     
 
@@ -64,6 +72,24 @@
         <rdfs:range rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Laden"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#OfflineLaden"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#OnlineLaden"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#istVorgesetzter -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#istVorgesetzter">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Manager"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Verkaeufer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#kundeIstZugeordnet -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#kundeIstZugeordnet">
+        <rdfs:range rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Einkaufshistorie"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Kunde"/>
     </owl:ObjectProperty>
     
 
@@ -91,6 +117,12 @@
     
 
 
+    <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#Rabatt -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Rabatt"/>
+    
+
+
     <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#URL -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#URL"/>
@@ -114,15 +146,26 @@
     
 
 
-    <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#CRM -->
+    <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#Einkaufshistorie -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#CRM"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Einkaufshistorie">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Objekt"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#historieEnthaelt"/>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Warenkorb"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#Einkauf -->
+    <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#Jeans -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Einkauf"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Jeans">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Produkt"/>
+    </owl:Class>
     
 
 
@@ -130,14 +173,38 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Kunde">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Person"/>
-        <owl:disjointWith rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Mitarbeiter"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#kundeIstZugeordnet"/>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Einkaufshistorie"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#Laden -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Laden"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Laden">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Objekt"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#Manager -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Manager">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Mitarbeiter"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#istVorgesetzter"/>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Verkaeufer"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Verkaeufer"/>
+    </owl:Class>
     
 
 
@@ -145,6 +212,14 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Mitarbeiter">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#Objekt -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Objekt">
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Person"/>
     </owl:Class>
     
 
@@ -162,34 +237,97 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#OnlineLaden">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Laden"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#erreichbarDurch"/>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Webseite"/>
-                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
     </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#Person -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Person">
+    <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Person"/>
+    
+
+
+    <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#Potentielle -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Potentielle">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Kunde"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#Produkt -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Produkt">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Objekt"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#Schuhe -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Schuhe">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Produkt"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#Standard -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Standard">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Kunde"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#T-Shirt -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#T-Shirt">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Produkt"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#VIP -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#VIP">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Kunde"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#Verkaeufer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Verkaeufer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Mitarbeiter"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#betreut"/>
-                <owl:onClass rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Person"/>
-                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Kunde"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">10</owl:maxQualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#Webseite -->
+    <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#Warenkorb -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Webseite"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Warenkorb">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Objekt"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#enthaelt"/>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Laden"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#enthaelt"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Produkt"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
     
 
 
@@ -207,9 +345,17 @@
     <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#Georg -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Georg">
-        <rdf:type rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Mitarbeiter"/>
-        <betreut rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Hans"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Potentielle"/>
+        <Rabatt rdf:datatype="http://www.w3.org/2001/XMLSchema#string">:5%</Rabatt>
         <betreut rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Peter"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#GrueneSchuhe -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#GrueneSchuhe">
+        <rdf:type rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Produkt"/>
     </owl:NamedIndividual>
     
 
@@ -217,10 +363,41 @@
     <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#Hans -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Hans">
-        <rdf:type rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Kunde"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#VIP"/>
+        <Rabatt rdf:datatype="http://www.w3.org/2001/XMLSchema#string">:15%</Rabatt>
         <Adresse xml:lang="de">Blumenstraße</Adresse>
         <email xml:lang="de">info@info.com</email>
-        <gekauft rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#SchuhEinkauf"/>
+        <kundeIstZugeordnet rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#HystorieHans"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#HystorieHans -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#HystorieHans">
+        <rdf:type rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Einkaufshistorie"/>
+        <historieEnthaelt rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Warenkorb"/>
+        <historieEnthaelt rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Warenkorb2"/>
+        <historieEnthaelt rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#warenkorb21313131"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#JeansBlau -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#JeansBlau">
+        <rdf:type rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Jeans"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#ManagerGeorg -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#ManagerGeorg">
+        <rdf:type rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Manager"/>
+        <istVorgesetzter rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#VerkEva"/>
+        <istVorgesetzter rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#VerkMax"/>
+        <istVorgesetzter rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#VerkPeter"/>
     </owl:NamedIndividual>
     
 
@@ -228,16 +405,9 @@
     <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#Peter -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Peter">
-        <rdf:type rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Kunde"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#SchuhEinkauf -->
-
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#SchuhEinkauf">
-        <rdf:type rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Einkauf"/>
-        <Preis xml:lang="de">200</Preis>
+        <rdf:type rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Standard"/>
+        <Rabatt rdf:datatype="http://www.w3.org/2001/XMLSchema#string">:10%</Rabatt>
+        <kundeIstZugeordnet rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#historie11231"/>
     </owl:NamedIndividual>
     
 
@@ -246,16 +416,78 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#SchuhLaden">
         <rdf:type rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#OnlineLaden"/>
-        <erreichbarDurch rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#SchuhLaden24.com"/>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#SchuhLaden24.com -->
+    <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#VerkEva -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#SchuhLaden24.com">
-        <rdf:type rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Webseite"/>
-        <URL xml:lang="de">www.SchuhLaden24.com</URL>
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#VerkEva">
+        <rdf:type rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Verkaeufer"/>
+        <betreut rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Hans"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#VerkMax -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#VerkMax">
+        <rdf:type rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Verkaeufer"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#VerkPeter -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#VerkPeter">
+        <rdf:type rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Verkaeufer"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#Warenkorb -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Warenkorb">
+        <rdf:type rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Warenkorb"/>
+        <enthaelt rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#JeansBlau"/>
+        <enthaelt rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#SchuhLaden"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#Warenkorb1231 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Warenkorb1231">
+        <rdf:type rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Warenkorb"/>
+        <enthaelt rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#GrueneSchuhe"/>
+        <enthaelt rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#SchuhLaden"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#Warenkorb2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Warenkorb2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Warenkorb"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#historie11231 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#historie11231">
+        <rdf:type rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Einkaufshistorie"/>
+        <historieEnthaelt rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Warenkorb1231"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/max/ontologies/CRM_Ontology#warenkorb21313131 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#warenkorb21313131">
+        <rdf:type rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Warenkorb"/>
+        <enthaelt rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#GrueneSchuhe"/>
+        <enthaelt rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#SchuhLaden"/>
     </owl:NamedIndividual>
     
 
@@ -271,20 +503,27 @@
     <rdf:Description>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
         <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#CRM"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Einkauf"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Laden"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Person"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Webseite"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Jeans"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Schuhe"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#T-Shirt"/>
         </owl:members>
     </rdf:Description>
     <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
-        <owl:distinctMembers rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Georg"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Hans"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Peter"/>
-        </owl:distinctMembers>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Kunde"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Potentielle"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Standard"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#VIP"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Potentielle"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Standard"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#VIP"/>
+        </owl:members>
     </rdf:Description>
 </rdf:RDF>
 
