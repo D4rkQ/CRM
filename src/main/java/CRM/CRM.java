@@ -80,7 +80,7 @@ public class CRM {
         OWLIndividual warenkorb1 = generateWarenkorb("Warenkorb1231", ontology, pm);
         OWLIndividual historie1 = addWarenkorbToHistorie(warenkorb1, "historie11231", ontology, pm);
         historieZuKundeZuordnen(historie1, peter, ontology, pm);
-        
+
         OWLIndividual warenkorb2 = generateWarenkorb("warenkorb21313131",ontology,pm);
         addWarenkorbToHistorie(warenkorb2,"HystorieHans",ontology,pm);
         analyseCustomers(ontology, pm);
@@ -226,7 +226,7 @@ public class CRM {
     public static void validate(OWLReasonerFactory reasonerFactory, OWLOntology ontology) throws OWLOntologyStorageException {
         //Valide Ontology speichern
         OWLReasoner reasoner = reasonerFactory.createReasoner(ontology, new SimpleConfiguration());
-        if (!reasoner.isConsistent()) {
+        if (reasoner.isConsistent()) {
             IRI documentIRI2 = IRI.create(output);
             manager.saveOntology(ontology, documentIRI2);
             System.out.println("\nExtended Ontology stored in " + documentIRI2 + "\n");
