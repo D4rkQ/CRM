@@ -208,6 +208,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Georg">
         <rdf:type rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Mitarbeiter"/>
+        <betreut rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Hans"/>
         <betreut rdf:resource="http://www.semanticweb.org/max/ontologies/CRM_Ontology#Peter"/>
     </owl:NamedIndividual>
     

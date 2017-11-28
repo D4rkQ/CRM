@@ -15,7 +15,7 @@ import java.io.*;
  * CRM OWL Ontology
  * based on some Examples of E. Ammann *
  * by Marcus Danzer & Marcel Sailer @ reutlingen-university
- */
+        */
 
 public class CRM {
 
@@ -43,7 +43,6 @@ public class CRM {
         OWLIndividual peter = factory.getOWLNamedIndividual(":Peter", pm);
         OWLClass kundenClass = factory.getOWLClass(":Kunde", pm);
         OWLClassAssertionAxiom caAxiom = factory.getOWLClassAssertionAxiom(kundenClass, peter);
-
         manager.addAxiom(ontology, caAxiom);
 
         //Mitarbeiter wird erzeugt (Georg)
@@ -70,7 +69,7 @@ public class CRM {
         OWLReasoner reasoner = reasonerFactory.createReasoner(ontology, new SimpleConfiguration());
 
         //Valide Ontology speichern
-        if (reasoner.isConsistent()) {
+            if (!reasoner.isConsistent()) {
             IRI documentIRI2 = IRI.create(output);
             manager.saveOntology(ontology, documentIRI2);
             System.out.println("\nExtended Ontology stored in " + documentIRI2 + "\n");
